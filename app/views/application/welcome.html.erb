@@ -1,1 +1,7 @@
 <h1>Welcome to Purchase Tracker</h1> 
+
+<% if user_signed_in? %>
+    <h2> Logged in as <%= current_user.name %><h2>
+<% else %>
+    <h2> Please Signup or Login to Use Purchase Tracker. <h2>
+<% end %>

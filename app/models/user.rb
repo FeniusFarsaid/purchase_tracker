@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
 
+  validates :name, presence: true, uniqueness: { case_sensitive: false}
+
   has_many :purchases
   has_many :products, through: :purchases 
 
