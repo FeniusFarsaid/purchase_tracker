@@ -22,11 +22,11 @@ class PurchasesController < ApplicationController
     end
 
     def destroy
-        library = Library.find(params[:id])
-        if library.user == current_user
-            library.destroy
+        purchase = Purchase.find(params[:id])
+        if purcahse.user == current_user
+            purchase.destroy
         end
-        redirect_to libraries_path
+        redirect_to purchases_path
     end
 
     private
