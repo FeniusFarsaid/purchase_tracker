@@ -1,1 +1,8 @@
-<h1> Test </h1>
+<%= form_for(@purchase) do |f| %>
+      <%= f.text_field :date, placeholder: 'date' %><br>
+      <%= f.text_field :quantity, placeholder: 'quantity' %><br>
+      <%= f.text_field :vendor, placeholder: 'vendor' %><br>
+      <%= f.text_field :user_id, placeholder: 'user_id' %><br>
+      <%= f.text_field :product_id, placeholder: 'product_id' %><br>
+      <br><%= f.submit %>
+  <% end %>
