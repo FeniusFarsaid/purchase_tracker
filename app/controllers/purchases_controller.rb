@@ -18,13 +18,19 @@ class PurchasesController < ApplicationController
     # end
 
     def create
-        if params[:product_id]
-            @product = Product.find_by(id: params[:product_id])
-        else
-            @product = Product.find_or_create_by(product_params)
-        end
+
+        # @product = Product.find(params[:product_id])
+        @purchase = Purchase.find_or_create_by(product_params)
         @user.products << @product if (@product && !@user.products.include?(@product))
-        redirect_to purchases_path
+        redirect_to root_path
+
+        # if params[:product_id]
+        #     @product = Product.find_by(id: params[:product_id])
+        # else
+        #     @product = Product.find_or_create_by(product_params)
+        # end
+        # # @user.products << @product if (@product && !@user.products.include?(@product))
+        # redirect_to root_path
     end
 
     def destroy
