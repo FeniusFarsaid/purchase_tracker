@@ -2,9 +2,10 @@
 
 <% if user_signed_in? %>
     <h2> Logged in as <%= current_user.name %></h2>
-    <h2> Your Purchase History: Here </h2>
+    <h2> Your Purchase History: <%= link_to 'Here', purchases_path %></h2>
     <h2> Record a New Purchase: <%= link_to 'Here', new_purchase_path %> </h2>
 
 <% else %>
     <h2> Please Signup or Login to Use Purchase Tracker. <h2>
 <% end %>
+

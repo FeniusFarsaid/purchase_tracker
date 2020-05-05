@@ -1,5 +1,6 @@
 class Purchase < ApplicationRecord
 
+    validates :product_name, presence: true 
     validates :date, presence: true, length: { maximum: 150}
     validates :vendor, presence: true, length: { maximum: 20}
     validates :quantity, presence: true

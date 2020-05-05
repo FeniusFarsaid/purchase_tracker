@@ -1,1 +1,5 @@
-<h1> Test </h1>
+<div>
+    <% @purchases.each do |purchase| %>
+        <li><%= purchase.user %></li>
+    <% end %>
+</div>
