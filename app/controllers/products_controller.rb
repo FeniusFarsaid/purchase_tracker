@@ -35,12 +35,8 @@ class ProductsController < ApplicationController
 
     private
 
-    def attraction_params
-        params.require(:attraction).permit(:name, :min_height, :nausea_rating, :happiness_rating, :tickets)
-    end
-
-    def set_attraction
-        @attraction = Attraction.find(params[:id])
+    def product_params
+        params.require(:product).permit(:name)
     end
 
 end

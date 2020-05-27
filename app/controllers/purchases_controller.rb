@@ -8,29 +8,14 @@ class PurchasesController < ApplicationController
     def new
         @purchase = Purchase.new
         @purchase.product = Product.new
-        @Products = Product.all
+        @products = Product.all
     end
 
-    # def create
-    #     @product = Product.find(params[:product_id])
-    #     @purchase = Purchase.new(user_id: current_user.id, product_id: product.id)
-    #     redirect_to user_path(current_user)
-    # end
-
     def create
-
-        # @product = Product.find(params[:product_id])
-        @purchase = Purchase.find_or_create_by(product_params)
-        @user.products << @product if (@product && !@user.products.include?(@product))
+        #binding.pry
+        @purchase = @user.purchases.create(purchase_params)
+        #binding.pry
         redirect_to root_path
-
-        # if params[:product_id]
-        #     @product = Product.find_by(id: params[:product_id])
-        # else
-        #     @product = Product.find_or_create_by(product_params)
-        # end
-        # # @user.products << @product if (@product && !@user.products.include?(@product))
-        # redirect_to root_path
     end
 
     def destroy
@@ -47,7 +32,7 @@ class PurchasesController < ApplicationController
         @user = current_user
     end
 
-    def product_params
-        params.require(:purchase).permit(product_attributes: [:date, :quantity, :vendor, :user_id, :product_id])[:product_attributes]
+    def purchase_params
+        params.require(:purchase).permit(:product_name, :date, :quantity, :vendor)
     end
 end

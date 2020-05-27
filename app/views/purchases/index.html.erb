@@ -1,5 +1,8 @@
 <div>
-    <% @purchases.each do |purchase| %>
-        <li><%= purchase.user %></li>
+    <% @user.purchases.each do |purchase| %>
+        <li><%= purchase.product_name %></li>
+        <li><%= purchase.date %></li>
+        <li><%= purchase.quantity %></li>
+        <li><%= purchase.vendor %></li>
     <% end %>
 </div>
