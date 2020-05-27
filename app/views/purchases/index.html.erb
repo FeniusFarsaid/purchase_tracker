@@ -1,8 +1,14 @@
 <div>
     <% @user.purchases.each do |purchase| %>
+        <div class="wrapper" style="border: 2px solid black">
         <li><%= purchase.product_name %></li>
         <li><%= purchase.date %></li>
-        <li><%= purchase.quantity %></li>
-        <li><%= purchase.vendor %></li>
+        <li> Quantity: <%= purchase.quantity %> Kgs</li>
+        <li><%= purchase.vendor %></li><br>
+        <%= link_to 'Show', purchase %><br>
+        <%= link_to 'Edit', edit_purchase_path(purchase) %><br>
+        <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></div><br>
     <% end %>
 </div>
+
+

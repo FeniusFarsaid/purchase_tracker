@@ -1,4 +1,7 @@
 <h1>Welcome to Purchase Tracker</h1> 
+<div class="container" style="float: left">
+  <header><img src="https://lh3.googleusercontent.com/proxy/lZPdqDs98b4p7Z2pPpG8mFwwjIWZV2WSm_rg6_MJLdooTvqEVI7f6pfIZUj26q1mExomjP8cMnJiMB4cRt1D4GXtGlsRKWzYmpq3zIU-ZrHard4N5T_GQ5Dwz2HuK-NfxSMgXEC2xQCE98TOpw" width="400" height=200 class="img-responsive main-image">
+  
 
 <% if user_signed_in? %>
     <h2> Logged in as <%= current_user.name %></h2>
@@ -8,4 +11,5 @@
 <% else %>
     <h2> Please Signup or Login to Use Purchase Tracker. <h2>
 <% end %>
+</div>
 

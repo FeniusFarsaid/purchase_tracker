@@ -32,6 +32,10 @@ class PurchasesController < ApplicationController
         @user = current_user
     end
 
+    def set_purchase
+        @purchase = Purchase.find(params[:id])
+    end
+
     def purchase_params
         params.require(:purchase).permit(:product_name, :date, :quantity, :vendor)
     end

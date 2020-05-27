@@ -1,0 +1,10 @@
+<%= form_for(@purchase) do |f| %>
+
+    <%= f.collection_select :product_name, Product.all, :name, :name, placeholder: 'Product Name' %><br>
+        <%= f.text_field :date, placeholder: 'date' %><br>
+        <%= f.text_field :quantity, placeholder: 'quantity' %><br>
+        <%= f.text_field :vendor, placeholder: 'vendor' %><br>
+        <br><%= f.submit %>
+
+<% end %>
+
