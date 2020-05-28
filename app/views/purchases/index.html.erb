@@ -1,13 +1,12 @@
+<h1>Your Purchase History</h1>
 <div>
     <% @user.purchases.each do |purchase| %>
         <div class="wrapper" style="border: 2px solid black">
         <%= purchase.product.name %><br>
         <%= purchase.date %><br>
-         Quantity: <%= purchase.quantity %> Kgs<br>
-        <%= purchase.vendor %><br>
-        <%= link_to 'Show', purchase %><br>
+        <%= link_to 'Details', purchase %><br>
         <%= link_to 'Edit', edit_purchase_path(purchase) %><br>
-        <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></div><br>
+        <%= link_to 'Delete', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></div><br>
     <% end %>
 </div>
 

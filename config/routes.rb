@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'application#welcome'
 
-  resources :purchases, only: [:index, :new, :create, :edit, :destroy]
+  resources :purchases, only: [:index, :new, :create, :edit, :destroy, :show]
 
   resources :products, only: [:index, :new, :create, :edit, :destroy]
   

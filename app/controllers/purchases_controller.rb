@@ -5,17 +5,23 @@ class PurchasesController < ApplicationController
         @purchases = @user.purchases
     end
 
+    def show
+        @purchase = Purchase.find(params[:id])
+    end
+
     def new
         @purchase = Purchase.new
         @purchase.product = Product.new
         @products = Product.all
     end
 
+    def edit
+        @purchase = Purchase.find(params[:id])
+    end
+
     def create
-        #binding.pry
         @purchase = @user.purchases.create(purchase_params)
-        #binding.pry
-        redirect_to root_path
+        redirect_to purchases_path
     end
 
     def destroy
@@ -32,11 +38,8 @@ class PurchasesController < ApplicationController
         @user = current_user
     end
 
-    def set_purchase
-        @purchase = Purchase.find(params[:id])
-    end
-
     def purchase_params
         params.require(:purchase).permit(:product_id, :product_name, :date, :quantity, :vendor)
     end
+    
 end
