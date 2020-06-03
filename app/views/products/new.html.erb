@@ -1,0 +1,8 @@
+<h1>Enter a New Product</h1>
+
+<%= form_for(@product) do |f| %>
+
+        <%= f.text_field :name, placeholder: 'name' %><br>
+        <br><%= f.submit %>
+
+<% end %>

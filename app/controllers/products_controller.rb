@@ -1,31 +1,19 @@
 class ProductsController < ApplicationController
 
-    before_action :set_product, only: [:show, :edit, :update]
+    #before_action :set_product, only: [:index, :new]
     
     def index
         @products = Product.all
         @user = current_user
     end
 
-    def show
-        @user = current_user
-    end
-
     def new
-        if !current_user.admin
-            redirect_to products_path
-        else
-            @product = Product.new
-        end
+        @product = Product.new
     end
 
     def create
         @product = Product.create(product_params)
         redirect_to product_path(@product)
-    end
-
-    def edit
-        redirect_to product_path(@aproduct) if !current_user.admin
     end
 
     def update
